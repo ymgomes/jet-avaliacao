@@ -1,9 +1,11 @@
 .infoBar {
-	background-color: $ascent-1-color;
-	color: white;
+	background-color: #333;
+	color: #fff;
 
 	h5 {
 	  margin-bottom: 5px !important;
+	  text-transform:uppercase !important;
+	  font-weight:900;
 	}
 
 	.icon_place {

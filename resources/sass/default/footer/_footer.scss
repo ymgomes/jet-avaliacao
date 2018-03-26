@@ -4,25 +4,28 @@
   }
 
   .footer {
-	background-color: $ascent-4-color !important;
+	background-color: #333 !important;
 	padding-bottom: 20px !important;
 	margin-top:30px !important;
 
 	.social.list {
 
 	  .button {
-		margin-left:10px;
+		margin-right:10px;
+		background:#fff !important;
 
 		i{
 		  font-size: 2em;
 		  line-height: 0.95em;
+		  color:#666;
+
 		}
 	  }
 	}
   }
 
   .subFooter {
-	background-color: $ascent-5-color;
+	background-color: $primary-color;
 
 	.menu_subfooter {
 	  margin-bottom: 1em;

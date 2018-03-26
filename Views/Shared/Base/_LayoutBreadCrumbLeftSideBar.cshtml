@@ -47,14 +47,12 @@
         @Html.Action("GetCartBySession", "Checkout")
 
     <div class="pusher">
-        <!-- ~/Views/Shared/Common/_TopBar.cshtml -->
-        @Html.Partial("Common/_TopBar")
+
 
         <!-- ~/Views/Shared/Common/_Head.cshtml -->
         @Html.Partial("Common/_Head")
 
-        <!-- ~/Views/Shared/Common/_Menu.cshtml -->
-        @Html.Action("Menu", "Home")
+
 
         @RenderSection("breadcrumbs", required: true)
 

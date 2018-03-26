@@ -1,10 +1,10 @@
-$menuBG: $primary-color;
-$menuTextColor: $white;
-$menuHeight: 60px;
+$menuBG: #fff;
+$menuTextColor: #000;
+$menuHeight: 40px;
 $menuHoverBorderColor: $ascent-1-color;
 
 .menuheader {
-  background-color: $menuBG;
+  //background-color: $menuBG;
   min-height: $menuHeight;
   width: 100%;
   /*Sub Classes*/
@@ -29,6 +29,9 @@ $menuHoverBorderColor: $ascent-1-color;
           white-space: nowrap;
           overflow: hidden;
           text-overflow: ellipsis;
+          font-weight: 900;
+          text-transform: uppercase;
+          font-size: 16px;
             
           }
         
