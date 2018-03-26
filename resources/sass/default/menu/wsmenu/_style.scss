@@ -1,5 +1,16 @@
 @import "colors";
 
+//GOBIZ
+
+h4.header a { text-transform:uppercase;}
+.footer h4 { font-size:16px !important; text-transform:uppercase !important; border-bottom: 1px solid #505050 !important; padding-bottom:6px !important; margin-bottom:6px !important;}
+.menu-institucional .column { margin-bottom:15px !important;}
+.subFooter { text-align:center; background:#000 !important; color:#666 !important;}
+.social i.icon { color:fff !important;}
+.card.produto .content .info .sku-options { opacity: 100 !important; position: relative !important; background:none !important;}
+
+//GOBIZ
+
 .wsmenu {
     float: left;
     min-height: $menuHeight;
@@ -296,7 +307,7 @@
 
 .megamenu {
     background-color: $white;
-    border: solid 1px $colorgalleryapprox;
+    border: solid 1px $primary-color;
     color: $black;
     font-size: 15px;
     left: 0;

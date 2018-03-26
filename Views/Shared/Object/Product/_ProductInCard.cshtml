@@ -35,7 +35,32 @@
         </div>
         <div class="info">
 
-            <div class="sku-options mobile-hide @(Session["segment"] != null && Session["segment"].ToString() == "b2b" ? "hideme" : string.Empty)">
+            <div class="dados">
+                <div itemscope itemtype="http://schema.org/Product">
+                    <link itemprop="url" href="@(Model.UrlFriendlyCustom != null ? Model.UrlFriendlyCustom : Model.UrlFriendly)" rel="author" />
+                    <a itemprop="url" href="@(Model.UrlFriendlyCustom != null ? Model.UrlFriendlyCustom : Model.UrlFriendly)"><span itemprop="name"><h1>@Model.Name</h1></span></a>
+                    <span itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+                        @if (Model.PricePromotion != null && Model.PricePromotion > 0)
+                        {
+                            <span id="basePrice_@Model.IdProduct" class="precoBase">de <i>@string.Format("{0:c}", Model.Price)</i> por @(Session["segment"] != null && Session["segment"].ToString() == "b2b" && Model.AvailableReferences != null ? "a partir de" : string.Empty)</span> 
+                            <span itemprop="preco" class="preco">@string.Format("{0:c}", Model.PricePromotion)</span>
+                        }
+                        else
+                        {
+                            <span id="price_@Model.IdProduct" class="preco"><span class="precoBase">@(Session["segment"] != null && Session["segment"].ToString() == "b2b" && Model.AvailableReferences != null ? "a partir de" : string.Empty)</span> @string.Format("{0:c}", Model.Price)</span>
+                        }
+                        @if (Model.InstallmentMax != null)
+                        {
+                            <span>
+                                ou em <span class="installmentMaxNumber">@Model.InstallmentMax.MaxNumber</span>
+                                x de <span class="installmentMaxValue">@string.Format("{0:c}", Model.InstallmentMax.Value)</span>
+                            </span>
+                        }
+                    </span>
+                </div>
+            </div>
+
+            <div style="background: none;" class="sku-options mobile-hide @(Session["segment"] != null && Session["segment"].ToString() == "b2b" ? "hideme" : string.Empty)">
 
                 <h5 id="produto-esgotado_@Model.IdProduct" class="text center @(Model.FlagExhausted ? " " : "hideme" )">Produto Esgotado</h5>
 
@@ -98,30 +123,7 @@
                     </a>
                 }
             </div>
-            <div class="dados">
-                <div itemscope itemtype="http://schema.org/Product">
-                    <link itemprop="url" href="@(Model.UrlFriendlyCustom != null ? Model.UrlFriendlyCustom : Model.UrlFriendly)" rel="author" />
-                    <a itemprop="url" href="@(Model.UrlFriendlyCustom != null ? Model.UrlFriendlyCustom : Model.UrlFriendly)"><span itemprop="name"><h1>@Model.Name</h1></span></a>
-                    <span itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-                        @if (Model.PricePromotion != null && Model.PricePromotion > 0)
-                        {
-                            <span id="basePrice_@Model.IdProduct" class="precoBase">de <i>@string.Format("{0:c}", Model.Price)</i> por @(Session["segment"] != null && Session["segment"].ToString() == "b2b" && Model.AvailableReferences != null ? "a partir de" : string.Empty)</span> 
-                            <span itemprop="preco" class="preco">@string.Format("{0:c}", Model.PricePromotion)</span>
-                        }
-                        else
-                        {
-                            <span id="price_@Model.IdProduct" class="preco"><span class="precoBase">@(Session["segment"] != null && Session["segment"].ToString() == "b2b" && Model.AvailableReferences != null ? "a partir de" : string.Empty)</span> @string.Format("{0:c}", Model.Price)</span>
-                        }
-                        @if (Model.InstallmentMax != null)
-                        {
-                            <span>
-                                ou em <span class="installmentMaxNumber">@Model.InstallmentMax.MaxNumber</span>
-                                x de <span class="installmentMaxValue">@string.Format("{0:c}", Model.InstallmentMax.Value)</span>
-                            </span>
-                        }
-                    </span>
-                </div>
-            </div>
+
             <div class="botoes">
                 @*  <a class="ui circular basic icon button heart left floated mobile-hide">
                         <i class="icon heart"></i>

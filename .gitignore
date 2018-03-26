@@ -306,3 +306,10 @@ NEO-DefaultTheme/assets/js/manifest.js.map
 NEO-DefaultTheme/assets/js/vendor.js.map
 NEO-DefaultTheme/mix-manifest.json
 NEO-DefaultTheme/package-lock.json
+
+/Views/Home/--Index.cshtml
+NEO-DefaultTheme/assets/css/
+/assets/image/logo/--logo.png
+NEO-DefaultTheme/assets/js/
+mix-manifest.json
+package-lock.json
