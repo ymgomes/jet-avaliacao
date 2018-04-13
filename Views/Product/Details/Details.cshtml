@@ -182,61 +182,7 @@
         </div>
 
         <div class="row detalhes produto">
-            <!-- FIM IMAGENS DO PRODUTO PRINCIPAL-->
-            <div class="sixteen wide mobile nine wide computer column" id="exibePartial">
-                @{
-                    List<DomainProduct.Entities.ProductImage> productFirstReferenceImages = new List<DomainProduct.Entities.ProductImage>();
-                    List<DomainProduct.Entities.ProductImage> productImages = new List<DomainProduct.Entities.ProductImage>();
 
-                    if (Model.AvailableReferences != null)
-                    {
-                        foreach (var item in Model.ProductImages)
-                        {
-                            int flag = 0;
-                            if (item.Variacao_ids != null)
-                            {
-                                for (int i = 0; i < item.Variacao_ids.Length; i++)
-                                {
-                                    for (int j = 0; j < SKUPadrao.Variations.Count(); j++)
-                                    {
-                                        if (item.Variacao_ids[0] == SKUPadrao.Variations[j].IdVariation)
-                                        {
-                                            productFirstReferenceImages.Add(item);
-                                        }
-                                        if (item.Variacao_ids[i] == SKUPadrao.Variations[j].IdVariation)
-                                        {
-                                            flag++;
-                                        }
-                                    }
-                                }
-                            }
-                            if (flag == SKUPadrao.Variations.Count())
-                            {
-                                productImages.Add(item);
-                            }
-                        }
-
-                        if (productImages.Count == 0)
-                        {
-                            productImages = productFirstReferenceImages;
-                        }
-                        if (productImages.Count == 0)
-                        {
-                            productImages = Model.ProductImages;
-                        }
-                        if (productImages.Count == 0)
-                        {
-                            Model.ProductImages.RemoveAll(item => item.Variacao_ids == null);
-                        }
-                    }
-                    else
-                    {
-                        productImages = Model.ProductImages;
-                    }
-                }
-                @Html.Partial("~/Views/Product/Details/_Slide.cshtml", productImages.ToList())
-            </div>
-            <!-- COMEÇO IMAGENS DO PRODUTO PRINCIPAL-->
             <div class="ui divider hidden"></div>
             <!-- COMEÇO INFORMAÇÕES DO PRODUTO-->
             <div class="sixteen wide mobile seven wide computer column infoProduto">
@@ -481,6 +427,65 @@
                 </div>
             </div>
             <!-- FIM INFORMAÇÕES DO PRODUTO-->
+
+
+            <!-- FIM IMAGENS DO PRODUTO PRINCIPAL-->
+            <div class="sixteen wide mobile nine wide computer column" id="exibePartial">
+                @{
+                    List<DomainProduct.Entities.ProductImage> productFirstReferenceImages = new List<DomainProduct.Entities.ProductImage>();
+                    List<DomainProduct.Entities.ProductImage> productImages = new List<DomainProduct.Entities.ProductImage>();
+
+                    if (Model.AvailableReferences != null)
+                    {
+                        foreach (var item in Model.ProductImages)
+                        {
+                            int flag = 0;
+                            if (item.Variacao_ids != null)
+                            {
+                                for (int i = 0; i < item.Variacao_ids.Length; i++)
+                                {
+                                    for (int j = 0; j < SKUPadrao.Variations.Count(); j++)
+                                    {
+                                        if (item.Variacao_ids[0] == SKUPadrao.Variations[j].IdVariation)
+                                        {
+                                            productFirstReferenceImages.Add(item);
+                                        }
+                                        if (item.Variacao_ids[i] == SKUPadrao.Variations[j].IdVariation)
+                                        {
+                                            flag++;
+                                        }
+                                    }
+                                }
+                            }
+                            if (flag == SKUPadrao.Variations.Count())
+                            {
+                                productImages.Add(item);
+                            }
+                        }
+
+                        if (productImages.Count == 0)
+                        {
+                            productImages = productFirstReferenceImages;
+                        }
+                        if (productImages.Count == 0)
+                        {
+                            productImages = Model.ProductImages;
+                        }
+                        if (productImages.Count == 0)
+                        {
+                            Model.ProductImages.RemoveAll(item => item.Variacao_ids == null);
+                        }
+                    }
+                    else
+                    {
+                        productImages = Model.ProductImages;
+                    }
+                }
+                @Html.Partial("~/Views/Product/Details/_Slide.cshtml", productImages.ToList())
+            </div>
+            <!-- COMEÇO IMAGENS DO PRODUTO PRINCIPAL-->
+
+
         </div>
 
 

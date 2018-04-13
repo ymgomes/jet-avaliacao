@@ -21,6 +21,13 @@
     </div>
 }
 @section banner {
+
+}
+@section filters {
+
+}
+<div class="twelve wide column">
+
     @if (Model != null)
     {
         <div class="sixteen wide column">
@@ -28,19 +35,7 @@
             @Html.Action("BannerCategory", "Banner", new { id = Model.IdCategory, type = 'F' })
         </div>
     }
-}
-@section filters {
-    <div class="four wide column filterColumn">
-        <div class="row one column">
-            <!-- Page: ~/Views/Shared/Common/_FilterMenu.cshtml -->
-            @Html.Action("FilterMenu", "Product")
-            <div class="ui divider hidden"></div>
-            <!-- Page: ~/Views/Shared/Blocks/Banner/_SideHalfBanner.cshtml -->
-            @Html.Action("SideHalfBannerCategory", "Banner", new { categoryId = Model.IdCategory })
-        </div>
-    </div>
-}
-<div class="twelve wide column">
+    
     <div class="ui grid">
         <div class="row one column">
             <div class="column right aligned right floated">
@@ -111,6 +106,16 @@
         }
     </div>
 </div>
+<div class="four wide column filterColumn">
+    <div class="row one column">
+        <!-- Page: ~/Views/Shared/Common/_FilterMenu.cshtml -->
+        @Html.Action("FilterMenu", "Product")
+        <div class="ui divider hidden"></div>
+        <!-- Page: ~/Views/Shared/Blocks/Banner/_SideHalfBanner.cshtml -->
+        @Html.Action("SideHalfBannerCategory", "Banner", new { categoryId = Model.IdCategory })
+    </div>
+</div>
+    
 <input type="hidden" name="GenericPageFilter" id="GenericPageFilter" value="@Model.IdCategory" />
 @section gtm {
     @Html.Action("GoogleTagManager", "Common", new { origin = ViewContext.RouteData.Values["controller"] })
